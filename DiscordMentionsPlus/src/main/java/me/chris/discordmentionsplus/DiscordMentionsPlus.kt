@@ -3,7 +3,7 @@ package me.chris.discordmentionsplus
 import blue.sparse.bukkitk.commands.command
 import blue.sparse.bukkitk.events.listen
 import blue.sparse.bukkitk.extensions.colored
-import me.chris.discordmentions.listeners.ChatMentionHandler
+import me.chris.discordmentionsplus.listeners.ChatMentionHandler
 import me.chris.discordmentionsplus.helpers.NotificationOptions
 import me.chris.nms.*
 import org.bukkit.Bukkit

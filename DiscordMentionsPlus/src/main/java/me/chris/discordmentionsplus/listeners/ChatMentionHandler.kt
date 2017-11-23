@@ -1,4 +1,4 @@
-package me.chris.discordmentions.listeners
+package me.chris.discordmentionsplus.listeners
 
 import blue.sparse.bukkitk.events.listen
 import blue.sparse.bukkitk.extensions.colored
@@ -25,34 +25,41 @@ class ChatMentionHandler(plugin: DiscordMentionsPlus) {
             if (!player.hasPermission("discordmentions.use")) return@listen
 
             val message = it.message
-            if (message.first() != '@') return@listen
-            val mention = message.split(" ").first()
-            val mentionedUserString = message.removePrefix("@").split(" ").first()
-            val mentionedUser = Bukkit.getPlayer(mentionedUserString) ?: return@listen
 
-            val dplayer = DPlayer[mentionedUser]
+            val mentions = message.split(' ').filter { it.startsWith("@") }.mapNotNull { Bukkit.getPlayer(it.drop(1)) }
 
-            if (useActionBar && dplayer.showNotifications) {
-                plugin.abSender.send(mentionedUser, actionBarNotificationFormat.replace("<sent-message>", message.replace(mention, "")).replace("<sender>", player.name).colored)
+            if (mentions.isEmpty()) return@listen
+
+            if (useActionBar) {
+                mentions.filter { DPlayer[it].showNotifications }.forEach {
+                    plugin.abSender.send(it, actionBarNotificationFormat.replace("<sent-message>", message.replace("@${it.name}", "")).replace("<sender>", player.name).colored)
+                }
             }
 
-            if (useTitleMessage && dplayer.showNotifications) {
-                plugin.titleSender.send(mentionedUser,
-                        titleMessageTITLENotificationFormat.replace("<sent-message", message.replace(mention, "")).replace("<sender>", player.name).colored,
-                        titleMessageSUBTITLENotificationFOrmat.replace("<sent-message>", message.replace(mention, "")).replace("<sender>", player.name).colored)
+            if (useTitleMessage) {
+                mentions.filter { DPlayer[it].showNotifications }.forEach {
+                    plugin.titleSender.send(it,
+                            titleMessageTITLENotificationFormat.replace("<sent-message", message.replace("@${it.name}", "")).replace("<sender>", player.name).colored,
+                            titleMessageSUBTITLENotificationFOrmat.replace("<sent-message>", message.replace("@${it.name}", "")).replace("<sender>", player.name).colored)
+                }
             }
 
-            if (dplayer.hearSound)
-                mentionedUser.playSound(mentionedUser.location, notificationSound, 10f, 1f)
+            mentions.filter { DPlayer[it].hearSound }.forEach {
+                it.playSound(it.location, notificationSound, 10f, 1f)
+            }
         }
 
         plugin.listen<PlayerChatTabCompleteEvent> {
-            if (it.chatMessage.first() != '@') return@listen
             if (!it.player.hasPermission("discordmentions.use")) return@listen
-            for (player in Bukkit.getOnlinePlayers()) {
-                if (player.name.toLowerCase().startsWith(it.chatMessage.drop(1).toLowerCase()))
-                    it.tabCompletions.add("@${player.name}")
-            }
+            val message = it.chatMessage
+
+            val split = message.split(" ")
+
+            if (!split.last().startsWith("@")) return@listen
+
+            Bukkit.getOnlinePlayers()
+                    .filter { it.name.toLowerCase().startsWith(split.last().drop(1).toLowerCase()) }
+                    .forEach { player -> it.tabCompletions.add("@${player.name}") }
         }
     }
 }
