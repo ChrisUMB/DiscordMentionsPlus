@@ -45,7 +45,10 @@ class DiscordMentionsPlus : JavaPlugin() {
                     "v1_9_R1", "V1_9_R2", "V1_9_R3" -> ActionBarSender1_9_R1()
                     "v1_10_R1" -> ActionBarSender1_10_R1()
                     "v1_11_R1" -> ActionBarSender1_11_R1()
+                    "v1_11_R2" -> ActionBarSender1_11_R2()
                     "v1_12_R1" -> ActionBarSender1_12_R1()
+                    "v1_12_R2" -> ActionBarSender1_12_R2()
+                    "v1_12_R3" -> ActionBarSender1_12_R3()
                     else -> {
                         ActionBarSender1_12_R1()
                     }
