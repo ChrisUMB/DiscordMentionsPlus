@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="API" />
+        <module name="DiscordMentionsPlus" />
         <module name="Plugin" />
         <module name="Version1_10_R1" />
         <module name="Version1_11_R1" />
@@ -20,16 +21,10 @@
         <module name="Version1_9_R1" />
         <module name="Verson1_9_R3" />
       </profile>
-      <profile name="Annotation profile for DiscordMentionsPlus" enabled="true">
-        <sourceOutputDir name="../target/generated-sources/annotations" />
-        <sourceTestOutputDir name="../target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <module name="DiscordMentionsPlus" />
-      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="API" target="1.8" />
-      <module name="DiscordMentionsPlus" target="1.5" />
+      <module name="DiscordMentionsPlus" target="1.8" />
       <module name="DiscordMentionsPlus Plugin" target="1.8" />
       <module name="Plugin" target="1.5" />
       <module name="Version1_10_R1" target="1.8" />

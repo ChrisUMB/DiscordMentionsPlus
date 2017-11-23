@@ -37,6 +37,8 @@
       <sourceFolder url="file://$MODULE_DIR$/Plugin/src/main/java" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Plugin/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/Plugin/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/DiscordMentionsPlus/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/DiscordMentionsPlus/src/main/resources" type="java-resource" />
       <excludeFolder url="file://$MODULE_DIR$/Plugin/target" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
@@ -51,11 +53,11 @@
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.code.gson:gson:2.8.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.yaml:snakeyaml:1.19" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: net.md-5:bungeecord-chat:1.12-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-jre8:1.2.0-beta-88" level="project" />
-    <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib:1.2.0-beta-88" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-jre8:1.2.0-rc-39" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib:1.2.0-rc-39" level="project" />
     <orderEntry type="library" name="Maven: org.jetbrains:annotations:13.0" level="project" />
-    <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-jre7:1.2.0-beta-88" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: org.jetbrains.kotlin:kotlin-test:1.2.0-beta-88" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-jre7:1.2.0-rc-39" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.jetbrains.kotlin:kotlin-test:1.2.0-rc-39" level="project" />
     <orderEntry type="library" name="Maven: com.github.timtomtim7:BukkitK:3909f9b2c9" level="project" />
     <orderEntry type="library" name="Maven: com.okkero.skedule:skedule:1.2.3" level="project" />
   </component>

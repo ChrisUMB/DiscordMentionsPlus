@@ -30,6 +30,9 @@ class DiscordMentionsPlus : JavaPlugin() {
 
     }
 
+    /**
+     * You should probably use friendlier names, [Bukkit.getBukkitVersion]
+     */
     private fun getActionBarSender(): ActionBarSender {
         val version = Bukkit.getServer().javaClass.`package`.name
         val switchableVersion = version.substring(version.lastIndexOf('.') + 1)
@@ -52,6 +55,9 @@ class DiscordMentionsPlus : JavaPlugin() {
         return versionedActionBarSender
     }
 
+    /**
+     * These should be a single file, not two separate ones
+     */
     private fun getTitleMessageSender(): TitleMessageSender {
         val version = Bukkit.getServer().javaClass.`package`.name
         val switchableVersion = version.substring(version.lastIndexOf('.') + 1)
