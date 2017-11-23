@@ -1,0 +1,3 @@
+name: DiscordMentionsPlus
+version: ${project.version}
+main: me.chris.discordmentionsplus.DiscordMentionsPlus
